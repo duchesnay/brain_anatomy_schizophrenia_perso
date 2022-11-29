@@ -1,0 +1,14 @@
+name: brain_anatomy_schizophrenia
+channels:
+  - conda-forge
+dependencies:
+  - scipy
+  - numpy
+  - pandas>=0.21
+  - jupyter
+  - matplotlib
+  - scikit-learn>=0.19
+  - seaborn
+  - nilearn
+  - pip:
+    - ramp-workflow

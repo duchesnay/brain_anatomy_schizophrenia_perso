@@ -51,7 +51,7 @@ The main Evaluation metrics is the Root-mean-square deviation
 ## Links
 
 - [RAMP studio](https://ramp.studio/)
-- [RAMP-workflow’s documentation](https://paris-saclay-cds.github.io/ramp-workflow/)
+- [RAMP-workflow’s documentation](https://paris-saclay-cds.github.io/ramp-docs/ramp-workflow/)
 - [RAMP-workflow’s github](https://github.com/paris-saclay-cds/ramp-workflow)
 - [RAMP Kits](https://github.com/ramp-kits)
 
@@ -93,6 +93,13 @@ Then, you can activate the environment using:
 ```
 conda activate brain_anatomy_schizophrenia
 ```
+
+Install optional packages, e.g.: `spyder`
+
+```
+conda install spyder
+```
+
 
 And desactivate using
 
