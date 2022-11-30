@@ -9,7 +9,7 @@ from sklearn.model_selection import StratifiedKFold
 
 
 N_FOLDS = 5
-problem_title = 'Predict schizophrenia from brain grey matter (regression)'
+problem_title = 'Predict schizophrenia from brain grey matter (classification)'
 
 _target_column_name = 'diagnosis'
 _prediction_label_names = ['control', 'schizophrenia']
