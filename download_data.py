@@ -24,37 +24,36 @@ except NameError:
 
 os.makedirs(PATH_DATA, exist_ok=True)
 
-def fetch_data(files, dst, base_url, verbose=1):
+URL_DATA = 'ftp://ftp.cea.fr/pub/unati/people/educhesnay/data/brain_anatomy_schizophrenia_data/sz_public_202211.zip' # PUBLIC DATASET
+
+
+def fetch_data(urls, dst, verbose=1):
     """Fetch dataset.
 
     Args:
-        files (str): file.
+        urls (str, ): list/tuple of urls.
         dst (str): destination directory.
-        base_url (str): url, examples:
 
-
-            ftp://ftp.cea.fr/pub/unati/people/educhesnay/data/brain_anatomy_schizophrenia_data
     Returns:
         downloaded ([str, ]): paths to downloaded files.
 
     """
     downloaded = []
-    for file in files:
-        src_filename = os.path.join(base_url, file)
-        dst_filename = os.path.join(dst, file)
+    for url in urls:
+        dst_filename = os.path.join(dst, os.path.basename(url))
         if not os.path.exists(dst_filename):
             if verbose:
-                print("Download: %s" % src_filename)
-            urllib.request.urlretrieve(src_filename, dst_filename)
+                print("Download: %s" % url)
+            urllib.request.urlretrieve(url, dst_filename)
         downloaded.append(dst_filename)
     return downloaded
+
 
 if __name__ == "__main__":
 
     # Download and unzip dataset
     zip_filename = \
-        fetch_data(files=['sz_public_202211.zip'], dst=PATH_DATA,
-                   base_url='ftp://ftp.cea.fr/pub/unati/people/educhesnay/data/brain_anatomy_schizophrenia_data',
+        fetch_data(urls=[URL_DATA], dst=PATH_DATA,
                    verbose=1)[0]
 
     unpack_archive(zip_filename, extract_dir=PATH_DATA)
